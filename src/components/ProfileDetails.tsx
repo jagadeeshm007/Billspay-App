@@ -13,7 +13,6 @@ const ProfileDetails: React.FC<ProfileDetailsProps> = ({ name, email }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.profileContainer}>
-        {/* <Image source={{ uri: avatarUrl }} style={styles.avatar} /> */}
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.email}>{email}</Text>
       </View>
@@ -31,22 +30,20 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     width: width * 0.9,
+    height: width * 0.45,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
   },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 20,
-  },
+  
   name: {
     fontSize: 24,
     fontWeight: 'bold',

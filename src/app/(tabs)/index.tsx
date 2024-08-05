@@ -5,9 +5,6 @@ import Colors from '@/src/constants/Colors';
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <View style={{backgroundColor:'black',}}></View>
-      <View style={{backgroundColor:'blue',}}></View>
-      <View style={{backgroundColor:'yellow',}}></View>
     </View>
   );
 }

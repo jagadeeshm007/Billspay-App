@@ -7,6 +7,11 @@ const { width, height } = Dimensions.get('window');
 
 export default function TabTwoScreen() {
 
+  const handleSettingsPress= () => {
+    Alert.alert('Settings', 'Add Settings here...');
+    // Navigation logic here
+  };
+
   const handlePaymentHistoryPress = () => {
     Alert.alert('Payments History', 'Navigating to Payments History...');
     // Navigation logic here
@@ -21,11 +26,12 @@ export default function TabTwoScreen() {
       <ScrollView style={styles.container}>
           <ProfileDetails
             name="John Doe"
-            email="123@gmail.com"
+            email="johndoe@gmail.com"
           />
           <ProfileOptions
           onPaymentHistoryPress={handlePaymentHistoryPress}
           onLogoutPress={handleLogoutPress}
+          onSettingsPress={handleSettingsPress}
         />
         </ScrollView>
   );

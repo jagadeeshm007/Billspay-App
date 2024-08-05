@@ -6,11 +6,15 @@ const { width } = Dimensions.get('window');
 interface ProfileOptionsProps {
   onPaymentHistoryPress: () => void;
   onLogoutPress: () => void;
+  onSettingsPress: () => void;
 }
 
-const ProfileOptions: React.FC<ProfileOptionsProps> = ({ onPaymentHistoryPress, onLogoutPress }) => {
+const ProfileOptions: React.FC<ProfileOptionsProps> = ({ onPaymentHistoryPress, onLogoutPress , onSettingsPress}) => {
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.option} onPress={onSettingsPress}>
+        <Text style={styles.optionText}>Admin Settings</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={onPaymentHistoryPress}>
         <Text style={styles.optionText}>Payments History</Text>
       </TouchableOpacity>
