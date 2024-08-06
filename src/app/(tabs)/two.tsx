@@ -1,13 +1,25 @@
-import { StyleSheet,Dimensions, Alert } from 'react-native';
-import { View } from '@/src/components/Themed';
-import { ScrollView } from 'react-native';
+import {ScrollView, Button, StyleSheet,Dimensions, Alert } from 'react-native';
+import { Text, View } from '@/src/components/Themed';
+import { FIREBASE_AUTH } from '@/FirebaseConfig';
 import ProfileDetails from '@/src/components/ProfileDetails';
 import ProfileOptions from '@/src/components/ProfileOptions';
+import CustomAlert from '@/src/components/CustomAlert';
+import React, { useState } from 'react';
+
 const { width, height } = Dimensions.get('window');
 
 export default function TabTwoScreen() {
 
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [alertData, setAlertData] = useState({ title: '', message: '' });
+
+  const showAlert = (title: string, message: string) => {
+    setAlertData({ title, message });
+    setAlertVisible(true);
+  };
+
   const handleSettingsPress= () => {
+    // showAlert('Settings', 'Add Settings here...');
     Alert.alert('Settings', 'Add Settings here...');
     // Navigation logic here
   };
@@ -18,54 +30,39 @@ export default function TabTwoScreen() {
   };
 
   const handleLogoutPress = () => {
-    Alert.alert('Logout', 'Logging out...');
-    // Logout logic here
+    //showAlert('Logout', 'Are you sure you want to logout?');
+     Alert.alert('Logout', 'Logging out...');
+     FIREBASE_AUTH.signOut();
   };
 
   return (
-      <ScrollView style={styles.container}>
-          <ProfileDetails
+    <View style={styles.container}>
+      <ProfileDetails
             name="John Doe"
             email="johndoe@gmail.com"
           />
-          <ProfileOptions
-          onPaymentHistoryPress={handlePaymentHistoryPress}
-          onLogoutPress={handleLogoutPress}
-          onSettingsPress={handleSettingsPress}
-        />
-        </ScrollView>
+
+      <ProfileOptions
+            onPaymentHistoryPress={handlePaymentHistoryPress}
+            onLogoutPress={handleLogoutPress}
+            onSettingsPress={handleSettingsPress}
+          />
+      
+      {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" /> */}
+
+       {/* -------------------------------------------------------------------------> signOut and delete account buttons */}
+      {/* <Button title="Sign Out" onPress={() => FIREBASE_AUTH.signOut()} /> */}
+      {/* Account deletion required in IOS store */}
+      {/* <Button title="Delete Account" onPress={() => FIREBASE_AUTH.currentUser?.delete()} /> */}
+      {/* </ScrollView> */}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column', // row | column
-    flexWrap: 'wrap', // wrap | nowrap | wrap-reverse
-    backgroundColor: 'white',
     flex: 1,
-    width: width,
-    height: height,
-  },
-  detials: {
-    width: width *0.95 ,
-    height: height * 0.2,
-    padding: 10,
-    margin: 10,
-    alignContent: 'center',
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'pink',
-    borderRadius: 15,
-  },
-  box: {
-    width: width *0.95 ,
-    height: height * 0.5,
-    padding: 10,
-    marginTop: 0,
-    margin: 10,
-    alignContent: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'lightblue',
+    //justifyContent: 'center',
   },
 });

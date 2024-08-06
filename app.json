@@ -4,11 +4,11 @@
     "slug": "PayBill",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/Bills/logo_transparent.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image":  "./assets/images/Bills/logo_transparent.png",
+      "image":  "./assets/images/Logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Bills/logo_transparent.png",
+        "foregroundImage": "./assets/images/Logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.android.billsapp"
@@ -25,7 +25,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/Bills/youtube_profile_image.png"
+      "favicon": "./assets/images/Logo.png",
     },
     "plugins": [
       "expo-router"

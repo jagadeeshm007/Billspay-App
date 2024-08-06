@@ -11,29 +11,22 @@ interface ProfileDetailsProps {
 
 const ProfileDetails: React.FC<ProfileDetailsProps> = ({ name, email }) => {
   return (
-    <SafeAreaView style={styles.container}>
       <View style={styles.profileContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.email}>{email}</Text>
       </View>
-    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 20,
-  },
   profileContainer: {
     width: width * 0.9,
     height: width * 0.45,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 20,
+    marginVertical: 10,
+    marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
     alignContent: 'center',
