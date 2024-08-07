@@ -5,6 +5,7 @@ import { defaultStyles } from '@/src/constants/Styles'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import {ColorPalette} from '@/src/constants/Colors'
 import { Link } from 'expo-router'
+import Test from './Test'
 
 const BottomLoginSheet = () => {
 
@@ -40,6 +41,7 @@ const BottomLoginSheet = () => {
           <Text style={styles.btnDarkText}>Log in</Text>
         </TouchableOpacity>
       </Link>
+      <Test />
     </View>
   )
 }

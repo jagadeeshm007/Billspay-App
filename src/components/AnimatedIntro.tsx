@@ -1,6 +1,6 @@
 import {ColorPalette} from '@/src/constants/Colors';
 import { memo } from 'react';
-import { StyleSheet, useWindowDimensions } from 'react-native';
+import { StyleSheet, useWindowDimensions, Image } from 'react-native';
 import Animated, {
   interpolate,
   interpolateColor,
@@ -15,23 +15,23 @@ import { ReText } from 'react-native-redash';
 const content = [
   {
     title: "LP Rail Products.",
-    bg: ColorPalette.lime,
-    fontColor: ColorPalette.pink,
+    bg: '#121212',
+    fontColor: 'white',
   },
   {
     title: "Let's go.",
-    bg: ColorPalette.brown,
-    fontColor: ColorPalette.sky,
+    bg: 'white',
+    fontColor: '#121212',
   },
   {
     title: "LP Rail Products.",
-    bg: ColorPalette.teal,
-    fontColor: ColorPalette.yellow,
+    bg: '#121212',
+    fontColor: 'white',
   },
   {
     title: "Let's go.",
-    bg: ColorPalette.green,
-    fontColor: ColorPalette.pink,
+    bg: 'white',
+    fontColor: '#121212',
   },
 ];
 
@@ -172,6 +172,7 @@ const AnimatedIntro = () => {
 
   return (
     <Animated.View style={[styles.wrapper, style1]}>
+      <Image style={styles.logo} source={require('../../assets/images/Logo.png')} />
       <Animated.View style={[styles.content]}>
         <Animated.View style={[styles.ball, ballStyle]} />
         <Animated.View style={[styles.mask, mask]} />
@@ -190,6 +191,8 @@ const AnimatedIntro = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    position: 'relative',
+    // backgroundColor: 'black',
   },
   mask: {
     zIndex: 1,
@@ -217,6 +220,14 @@ const styles = StyleSheet.create({
   },
   content: {
     marginTop: 300,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+    marginVertical: 10,
+    position: 'absolute', // Position the logo absolutely
+    top: 100,
   },
 });
 export default memo(AnimatedIntro);

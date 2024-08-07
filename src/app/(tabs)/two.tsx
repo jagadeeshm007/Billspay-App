@@ -1,10 +1,11 @@
-import {ScrollView, Button, StyleSheet,Dimensions, Alert } from 'react-native';
+import {ScrollView, Button,SafeAreaView, StyleSheet,Dimensions, Alert, Platform, StatusBar } from 'react-native';
 import { Text, View } from '@/src/components/Themed';
 import { FIREBASE_AUTH } from '@/FirebaseConfig';
 import ProfileDetails from '@/src/components/ProfileDetails';
 import ProfileOptions from '@/src/components/ProfileOptions';
 import CustomAlert from '@/src/components/CustomAlert';
 import React, { useState } from 'react';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 const { width, height } = Dimensions.get('window');
 
@@ -36,7 +37,8 @@ export default function TabTwoScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" />
       <ProfileDetails
             name="John Doe"
             email="johndoe@gmail.com"
@@ -55,7 +57,7 @@ export default function TabTwoScreen() {
       {/* Account deletion required in IOS store */}
       {/* <Button title="Delete Account" onPress={() => FIREBASE_AUTH.currentUser?.delete()} /> */}
       {/* </ScrollView> */}
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -63,6 +65,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: 40, // Add padding for Android status bar
+    backgroundColor: '#222',
     //justifyContent: 'center',
   },
 });
