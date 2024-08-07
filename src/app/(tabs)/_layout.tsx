@@ -9,7 +9,7 @@ import { useColorScheme } from '@/src/components/useColorScheme';
 import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import { getAuth } from 'firebase/auth';
 import { router } from 'expo-router';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
@@ -43,22 +43,28 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
+        
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: '',
           tabBarIcon: ({ color }) => <Octicons name="home" size={24} color={color} />,
-          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#222', // Set the background color of the profile header to black
+          },
+          headerTintColor: '#fff', // Set the text color of the header to white
+        
+          // headerShown: false,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  <Ionicons 
+                      name="notifications" 
+                      size={30} 
+                      color={Colors['dark'].text} 
+                      style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
               </Pressable>
@@ -69,9 +75,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Profile',
-          headerShown: false,
+          title: '',
+          // headerShown: false,
           tabBarIcon: ({ color }) => <FontAwesome6 name="circle-user" size={25} color={color} />,
+          headerStyle: {
+            backgroundColor: '#222', // Set the background color of the profile header to black
+          },
+          headerTintColor: '#fff', // Set the text color of the header to white
+        
         }}
       />
     </Tabs>

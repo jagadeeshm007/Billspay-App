@@ -35,6 +35,10 @@ export default function TabTwoScreen() {
      Alert.alert('Logout', 'Logging out...');
      FIREBASE_AUTH.signOut();
   };
+  const handleAboutPress = () => {
+    //showAlert('Logout', 'Are you sure you want to logout?');
+     Alert.alert('About', 'About us...');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -48,6 +52,7 @@ export default function TabTwoScreen() {
             onPaymentHistoryPress={handlePaymentHistoryPress}
             onLogoutPress={handleLogoutPress}
             onSettingsPress={handleSettingsPress}
+            onAboutPress={handleAboutPress}
           />
       
       {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" /> */}
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 40, // Add padding for Android status bar
+    paddingTop: StatusBar.currentHeight, // Add padding for Android status bar
     backgroundColor: '#222',
     //justifyContent: 'center',
   },

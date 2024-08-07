@@ -4,13 +4,15 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 const { width } = Dimensions.get('window');
 import { Text, View } from '@/src/components/Themed';
+import { Ionicons } from '@expo/vector-icons';
 interface ProfileOptionsProps {
   onPaymentHistoryPress: () => void;
   onLogoutPress: () => void;
   onSettingsPress: () => void;
+  onAboutPress: () => void;
 }
 
-const ProfileOptions: React.FC<ProfileOptionsProps> = ({ onPaymentHistoryPress, onLogoutPress , onSettingsPress}) => {
+const ProfileOptions: React.FC<ProfileOptionsProps> = ({ onPaymentHistoryPress, onLogoutPress , onSettingsPress, onAboutPress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"  />
@@ -21,6 +23,10 @@ const ProfileOptions: React.FC<ProfileOptionsProps> = ({ onPaymentHistoryPress, 
       <TouchableOpacity style={styles.option} onPress={onPaymentHistoryPress}>
       <MaterialIcons name="payments" size={24} color="white" />
         <Text style={styles.optionText}>Transactions History</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option} onPress={onAboutPress}>
+      <Ionicons name="information-circle-sharp" size={24} color="white" />
+        <Text style={styles.optionText}>About</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={onLogoutPress}>
       <MaterialIcons name="logout" size={24} color="#D22B2B" />

@@ -19,7 +19,7 @@ const content = [
     fontColor: 'white',
   },
   {
-    title: "Let's go.",
+    title: "Welcome.",
     bg: 'white',
     fontColor: '#121212',
   },
@@ -29,7 +29,7 @@ const content = [
     fontColor: 'white',
   },
   {
-    title: "Let's go.",
+    title: "Welcome.",
     bg: 'white',
     fontColor: '#121212',
   },
