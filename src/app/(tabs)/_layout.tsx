@@ -10,6 +10,7 @@ import { useClientOnlyValue } from '@/src/components/useClientOnlyValue';
 import { getAuth } from 'firebase/auth';
 import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
@@ -37,6 +38,10 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: '#222', // Set the background color of the tabs to black
           borderTopWidth: 0, // Remove the top border
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          position: 'absolute',
+          paddingTop: 10,
         },
         tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
         tabBarInactiveTintColor: Colors[colorScheme ?? 'dark'].tabIconDefault,
@@ -72,6 +77,22 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+              name="history"
+              options={{
+                title: '',
+                // headerShown: false,
+              
+                tabBarIcon: ({ color }) => <MaterialCommunityIcons name="swap-horizontal-circle-outline" size={25} color={color} />,
+                headerStyle: {
+                  backgroundColor: '#222',
+                },
+                headerTintColor: '#fff',
+              
+              }}
+            />
+
       <Tabs.Screen
         name="two"
         options={{

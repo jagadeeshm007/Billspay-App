@@ -14,6 +14,7 @@ return (
     <View
       style={{
         flex: 1,
+        backgroundColor: "#222",
       }}
     >
       {/* <StatusBar style="light" /> */}
